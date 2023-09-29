@@ -5,7 +5,7 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
   const [ancestryBonus, setAncestryBonus] = useState(0);
 
   const finalScore = score + ancestryBonus;
-  const modifier = Math.ceil((finalScore - 10) / 2);
+  const modifier = Math.floor((finalScore - 10) / 2);
 
   const handleIncreaseScore = () => {
     setScore((current) => current + 1);
