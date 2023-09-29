@@ -17,16 +17,13 @@ function StatList({
     "Charisma",
   ];
   return (
-    <table className="table-auto">
+    <table className="w-full md:text-xl">
       <thead>
         <tr className="border-b-2 border-b-gray-600">
-          {["Attribute", "Ability score", "Ancestry bonus", "Final score"].map(
-            (heading, i) => (
-              <th className="p-3 text-left" key={i}>
-                {heading}
-              </th>
-            )
-          )}
+          <th className="p-3 text-left">Attribute</th>
+          <th className="p-3 text-center">Ability score</th>
+          <th className="p-3 text-center">Ancestry bonus</th>
+          <th className="p-3 text-center">Final score</th>
         </tr>
       </thead>
 

@@ -23,10 +23,10 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
   };
 
   const buttonStyles =
-    "w-7 mr-1 border rounded border-gray-600 hover:bg-gray-700 active:bg-gray-900 transition-colors";
+    "w-7 mr-1 border rounded border-gray-600 hover:bg-gray-700 active:bg-gray-900 transition-colors disabled:bg-gray-800 disabled:text-gray-500";
 
   return (
-    <tr>
+    <tr className="border-b border-gray-700">
       <td className="p-3">{name}</td>
       <td className="p-3 flex justify-center items-center gap-4">
         <span
@@ -54,10 +54,10 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
                 scoreCosts[score + 1] > points ? "text-red-400" : ""
               }`}
             >
-              -{scoreCosts[score + 1]}🪙
+              {score < maxScore ? `-${scoreCosts[score]}🪙` : ""}
             </span>
           </div>
-          <div>
+          <div className="whitespace-nowrap">
             <button
               className={`${buttonStyles}`}
               onClick={handleDecreaseScore}
