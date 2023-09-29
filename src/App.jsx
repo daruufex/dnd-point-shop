@@ -6,6 +6,7 @@ function App() {
   const startingPoints = defaults.startingPoints;
   const maxPoints = defaults.maxPoints;
   const maxScore = defaults.maxScore;
+  const minScore = defaults.minScore;
   const scoreCosts = defaults.scoreCosts;
 
   const [points, setPoints] = useState(startingPoints);
@@ -18,8 +19,10 @@ function App() {
       </p>
       <StatList
         points={points}
+        setPoints={setPoints}
         maxPoints={maxPoints}
         maxScore={maxScore}
+        minScore={minScore}
         scoreCosts={scoreCosts}
       />
     </div>

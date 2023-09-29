@@ -1,6 +1,13 @@
 import Stat from "./Stat";
 
-function StatList({ points, maxPoints, maxScore, scoreCosts }) {
+function StatList({
+  points,
+  setPoints,
+  maxPoints,
+  maxScore,
+  minScore,
+  scoreCosts,
+}) {
   const statNames = [
     "Strength",
     "Dexterity",
@@ -29,8 +36,10 @@ function StatList({ points, maxPoints, maxScore, scoreCosts }) {
             name={stat}
             key={stat}
             points={points}
+            setPoints={setPoints}
             maxPoints={maxPoints}
             maxScore={maxScore}
+            minScore={minScore}
             scoreCosts={scoreCosts}
           />
         ))}
