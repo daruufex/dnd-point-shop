@@ -1,5 +1,5 @@
 export default {
-  startingPoints: 15,
+  startingPoints: 12,
   maxPoints: 27,
   maxScore: 15,
   minScore: 8,
