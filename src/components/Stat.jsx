@@ -72,6 +72,7 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
         </div>
       </td>
       <td className="p-3 text-center">
+        +&nbsp;
         <input
           className="bg-gray-800 p-2 rounded w-10 text-center"
           type="text"
