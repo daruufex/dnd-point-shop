@@ -3,11 +3,12 @@ import defaults from "./defaults";
 import StatList from "./components/StatList";
 
 function App() {
+  const startingPoints = defaults.startingPoints;
   const maxPoints = defaults.maxPoints;
   const maxScore = defaults.maxScore;
   const scoreCosts = defaults.scoreCosts;
 
-  const [points, setPoints] = useState(maxPoints);
+  const [points, setPoints] = useState(startingPoints);
 
   return (
     <div className="container mx-auto p-8 md:p-12">
