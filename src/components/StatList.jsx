@@ -17,13 +17,13 @@ function StatList({
     "Charisma",
   ];
   return (
-    <table className="w-full md:text-xl">
+    <table className="w-full text-md md:text-xl">
       <thead>
         <tr className="border-b-2 border-b-gray-600">
-          <th className="p-3 text-left">Attribute</th>
-          <th className="p-3 text-center">Ability score</th>
-          <th className="p-3 text-center">Ancestry bonus</th>
-          <th className="p-3 text-center">Final score</th>
+          <th className="p-2 md:p-3 text-left">Attribute</th>
+          <th className="p-2 md:p-3 text-center">Ability score</th>
+          <th className="p-2 md:p-3 text-center">Ancestry bonus</th>
+          <th className="p-2 md:p-3 text-center">Final score</th>
         </tr>
       </thead>
 
