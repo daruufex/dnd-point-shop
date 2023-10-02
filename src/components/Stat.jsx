@@ -27,8 +27,8 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
 
   return (
     <tr className="border-b border-gray-700">
-      <td className="p-3">{name}</td>
-      <td className="p-3 flex justify-center items-center gap-4">
+      <td className="p-2 md:p-3">{name}</td>
+      <td className="p-2 md:p-3 flex justify-center items-center gap-4">
         <span
           className={
             score === maxScore

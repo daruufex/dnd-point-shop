@@ -12,7 +12,7 @@ function App() {
   const [points, setPoints] = useState(startingPoints);
 
   return (
-    <div className="container max-w-3xl mx-auto p-4 pt-6 md:p-12">
+    <div className="container max-w-3xl mx-auto p-2 md:p-4 pt-6 md:p-12">
       <h1 className="text-3xl">💰 D&D Point Shop</h1>
       <p className="p-2">
         🪙 Current points: {points}/{maxPoints}
