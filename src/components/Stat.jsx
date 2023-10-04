@@ -1,4 +1,6 @@
 import { useState } from "react";
+import StatControls from "./StatList/Stat/StatControls";
+import AncestryBonus from "./StatList/Stat/AncestryBonus";
 
 function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
   const [score, setScore] = useState(10);
@@ -22,64 +24,22 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
     setAncestryBonus(newValue > 9 ? 0 : newValue);
   };
 
-  const buttonStyles =
-    "w-7 mr-1 border rounded border-gray-600 hover:bg-gray-700 active:bg-gray-900 transition-colors disabled:bg-gray-800 disabled:text-gray-500";
-
   return (
     <tr className="border-b border-gray-700">
       <td className="p-2 md:p-3">{name}</td>
-      <td className="p-2 md:p-3 flex justify-center items-center gap-4">
-        <span
-          className={
-            score === maxScore
-              ? "font-bold text-green-100"
-              : score === minScore
-              ? "italic text-red-200"
-              : ""
-          }
-        >
-          {score}
-        </span>
-        <div className="inline-flex flex-col items-start gap-2">
-          <div className="whitespace-nowrap">
-            <button
-              className={`${buttonStyles}`}
-              onClick={handleIncreaseScore}
-              disabled={score === maxScore || scoreCosts[score + 1] > points}
-            >
-              +
-            </button>
-            <span
-              className={`text-xs ${
-                scoreCosts[score + 1] > points ? "text-red-400" : ""
-              }`}
-            >
-              {score < maxScore ? `-${scoreCosts[score]}🪙` : ""}
-            </span>
-          </div>
-          <div className="whitespace-nowrap">
-            <button
-              className={`${buttonStyles}`}
-              onClick={handleDecreaseScore}
-              disabled={score === minScore}
-            >
-              -
-            </button>
-            <span className="text-xs">
-              {score > minScore ? `+${scoreCosts[score]}🪙` : ""}
-            </span>
-          </div>
-        </div>
-      </td>
-      <td className="p-3 text-center">
-        +&nbsp;
-        <input
-          className="bg-gray-800 p-2 rounded w-10 text-center"
-          type="text"
-          value={ancestryBonus}
-          onChange={(e) => handleChangeAncestryBonus(Number(e.target.value))}
-        />
-      </td>
+      <StatControls
+        score={score}
+        scoreCosts={scoreCosts}
+        minScore={minScore}
+        maxScore={maxScore}
+        points={points}
+        onIncreaseScore={handleIncreaseScore}
+        onDecreaseScore={handleDecreaseScore}
+      />
+      <AncestryBonus
+        ancestryBonus={ancestryBonus}
+        onChange={(e) => handleChangeAncestryBonus(Number(e.target.value))}
+      />
       <td className="p-3 text-center">
         {finalScore} ({modifier > 0 ? `+${modifier}` : modifier})
       </td>
