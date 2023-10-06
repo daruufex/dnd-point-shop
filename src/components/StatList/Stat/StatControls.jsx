@@ -1,14 +1,9 @@
+import { useContext } from "react";
+import AppContext from "../../../AppContext";
 import StatButton from "./StatButton";
 
-function StatControls({
-  score,
-  scoreCosts,
-  minScore,
-  maxScore,
-  points,
-  onIncreaseScore,
-  onDecreaseScore,
-}) {
+function StatControls({ score, onIncreaseScore, onDecreaseScore }) {
+  const { minScore, maxScore, scoreCosts, points } = useContext(AppContext);
   return (
     <td className="p-2 md:p-3 flex justify-center items-center gap-4">
       <span

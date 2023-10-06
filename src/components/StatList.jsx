@@ -1,13 +1,6 @@
 import Stat from "./Stat";
 
-function StatList({
-  points,
-  setPoints,
-  maxPoints,
-  maxScore,
-  minScore,
-  scoreCosts,
-}) {
+function StatList() {
   const statNames = [
     "Strength",
     "Dexterity",
@@ -16,6 +9,7 @@ function StatList({
     "Wisdom",
     "Charisma",
   ];
+
   return (
     <table className="w-full text-md md:text-xl">
       <thead>
@@ -29,16 +23,7 @@ function StatList({
 
       <tbody>
         {statNames.map((stat) => (
-          <Stat
-            name={stat}
-            key={stat}
-            points={points}
-            setPoints={setPoints}
-            maxPoints={maxPoints}
-            maxScore={maxScore}
-            minScore={minScore}
-            scoreCosts={scoreCosts}
-          />
+          <Stat name={stat} key={stat} />
         ))}
       </tbody>
     </table>
