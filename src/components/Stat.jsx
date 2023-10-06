@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AppContext from "../AppContext";
 import StatControls from "./StatList/Stat/StatControls";
 import AncestryBonus from "./StatList/Stat/AncestryBonus";
 
-function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
+function Stat({ name }) {
+  const { setPoints, scoreCosts } = useContext(AppContext);
+
   const [score, setScore] = useState(10);
   const [ancestryBonus, setAncestryBonus] = useState(0);
 
@@ -29,10 +32,6 @@ function Stat({ name, points, setPoints, maxScore, minScore, scoreCosts }) {
       <td className="p-2 md:p-3">{name}</td>
       <StatControls
         score={score}
-        scoreCosts={scoreCosts}
-        minScore={minScore}
-        maxScore={maxScore}
-        points={points}
         onIncreaseScore={handleIncreaseScore}
         onDecreaseScore={handleDecreaseScore}
       />

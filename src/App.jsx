@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AppContext from "./AppContext";
 import defaults from "./defaults";
 import Header from "./components/Header";
 import StatList from "./components/StatList";
@@ -13,17 +14,22 @@ function App() {
   const [points, setPoints] = useState(startingPoints);
 
   return (
-    <div className="container max-w-3xl mx-auto p-2 md:p-4 pt-6 md:p-12">
-      <Header points={points} maxPoints={maxPoints} />
-      <StatList
-        points={points}
-        setPoints={setPoints}
-        maxPoints={maxPoints}
-        maxScore={maxScore}
-        minScore={minScore}
-        scoreCosts={scoreCosts}
-      />
-    </div>
+    <AppContext.Provider
+      value={{
+        startingPoints,
+        maxPoints,
+        maxScore,
+        minScore,
+        scoreCosts,
+        points,
+        setPoints,
+      }}
+    >
+      <div className="container max-w-3xl mx-auto p-2 md:p-4 pt-6 md:p-12">
+        <Header />
+        <StatList />
+      </div>
+    </AppContext.Provider>
   );
 }
 
