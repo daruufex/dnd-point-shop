@@ -35,7 +35,7 @@ function StatControls({ score, onIncreaseScore, onDecreaseScore }) {
         </div>
         <div className="whitespace-nowrap">
           <StatButton onClick={onDecreaseScore} disabled={score === minScore}>
-            +
+            -
           </StatButton>
           <span className="text-xs">
             {score > minScore ? `+${scoreCosts[score]}🪙` : ""}
