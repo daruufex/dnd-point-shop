@@ -9,7 +9,7 @@ function Stat({ name }) {
   const [score, setScore] = useState(10);
   const [ancestryBonus, setAncestryBonus] = useState(0);
 
-  const finalScore = score + ancestryBonus;
+  const finalScore = score + Number(ancestryBonus);
   const modifier = Math.floor((finalScore - 10) / 2);
 
   const handleIncreaseScore = () => {
@@ -23,8 +23,15 @@ function Stat({ name }) {
   };
 
   const handleChangeAncestryBonus = (newValue) => {
-    if (isNaN(newValue)) return;
-    setAncestryBonus(newValue > 9 ? 0 : newValue);
+    if (isNaN(Number(newValue))) {
+      setAncestryBonus(0);
+      return;
+    }
+    if (newValue.length > 1) {
+      setAncestryBonus(newValue.slice(0, 1));
+      return;
+    }
+    setAncestryBonus(newValue);
   };
 
   return (
@@ -37,7 +44,7 @@ function Stat({ name }) {
       />
       <AncestryBonus
         ancestryBonus={ancestryBonus}
-        onChange={(e) => handleChangeAncestryBonus(Number(e.target.value))}
+        onChange={(e) => handleChangeAncestryBonus(e.target.value)}
       />
       <td className="p-3 text-center">
         {finalScore} ({modifier > 0 ? `+${modifier}` : modifier})
