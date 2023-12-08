@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import AppContext from "../AppContext";
-import StatControls from "./StatList/Stat/StatControls";
-import AncestryBonus from "./StatList/Stat/AncestryBonus";
+import StatControls from "./StatControls";
+import AncestryBonus from "./AncestryBonus";
 
 function Stat({ name }) {
   const { setPoints, scoreCosts } = useContext(AppContext);
